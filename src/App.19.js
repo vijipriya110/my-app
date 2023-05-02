@@ -1,5 +1,5 @@
 import React, { createElement } from "react";
-import "./App.css";
+import "./styles.css";
 
 export default function App() {
   const data = [
@@ -37,12 +37,76 @@ export default function App() {
 }
 
 function Profile({ image, name, batch }) {
-  return (
-    <div className="Profile">
-      <img src={image} alt={name} />
-      <h2>{name}</h2>
-      <p>{batch}</p>
-    </div>
-  );
-}
+    return (
+      <div className="Profile">
+        <img src={image} alt={name} />
+        <h2>{name}</h2>
+        <p>{batch}</p>
+      </div>
+    );
+  }
 
+  // export default function App() {
+// const name = "priya";
+// function getname() {
+//   return name;
+// }
+//   return (
+//     <div className="App">
+//       {/* <h1>hello {getname()}</h1> */}
+//       <Profile />
+//     </div>
+//   );
+// }
+
+//jsx java script xml
+
+//  which returns the html element from a functional component
+
+// coponent(create one component use multiple time)
+
+// component vs function diff
+
+// component(the name start capital letter)
+// function(the name start smalle letter)
+
+//proper component(functional)
+
+  //how to work component in return()
+  
+  // return React.createElement(
+  //   "div",
+  //   { className: "Greeting-name", id: "Greegting-id" },
+  //   React.createElement("h1", null, "hi")
+  // );
+  
+  //null is attributes like className,id
+  
+  // import and export
+  
+  // export (to use data any were)
+  
+  // import(use data from export)
+  
+  // props(is a keyword,
+  // its create default object structre and emit the value,
+  // wt ever inside the value,its emitted)
+  
+  //const props={
+  // image:"",
+  // name:"",
+  // batch:"",
+  // }
+  
+  // props destructre
+  // const{image,name,batch}=props
+  
+  // function getname(name){
+  //   return name
+  // }
+  
+  // getname("viji")
+  
+  // data.map(value,index,accArr)=console.log(value,index,accArr)
+  // here accArr is actual array
+  
