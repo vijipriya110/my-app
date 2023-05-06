@@ -46,3 +46,4 @@ function Profile({ image, name, batch }) {
   );
 }
 
+ 
