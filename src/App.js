@@ -1,22 +1,23 @@
-import { createElement } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Badge } from "react-bootstrap";
 
  
 function App() {
   const data = [
     {
       productImage:
-        "https://www.apple.com/in/iphone/home/images/meta/iphone__ky2k6x5u6vue_og.png",
+        "https://m.media-amazon.com/images/I/31VjlrbE3bL._SY445_SX342_QL70_FMwebp_.jpg",
       productName: "Iphone 14promax",
       price: 100000,
       rating: 91,
     },
     {
       productImage:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3jAmZcKm3NQoK8tlikVJsPAfm3cAhr_IKelWibDsJj3vgZ5BCZuvssOPGjIbljbkWR68&usqp=CAU",
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-m146bzsgins/gallery/in-galaxy-m14-5g-4gb-ram-sm-m146bzsgins-536288677?$1300_1038_PNG$",
       productName: "Samsung Galaxy",
       price: 95000,
       rating: 90,
@@ -36,33 +37,104 @@ function App() {
       rating: 50,
     },
   ]
-
+   const [count, setCount]=useState(0)
    return (
+    
     <div className="App">
-      <div className="card-Container">
+      <div className="head-App">
+        <h1><b>Best Brand Mobiles</b></h1>
+        </div> 
+      <div className="cart-value">
+        <Badge bg="success">
+          cart {count}
+        </Badge>
+      </div>
+
+      <div className="card-container">
       {data.map((product,idx)=>(
-        <Product/>
+        <Product
+        key={idx}
+        prod={product}
+        count={count}
+        setCount={setCount}
+        />
       ))}
     </div>
+    
     </div>
   );
 }
-export default App;
+export default App; 
 
 
-   function Product(){
+function Product({prod, count, setCount}){
+  const [show,setShow]=useState(true)
+
+   function addtocart(){
+    setCount(count+1)
+    setShow(!show)
+   }
+
+   function removecart(){
+    setCount(count-1)
+    setShow(!show)
+   }
+
+
     return(
       <div>
         <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="Product image  " />
+      <Card.Img variant="top" src={prod.productImage} />
       <Card.Body>
-        <Card.Title>Product Name</Card.Title>
-        <Card.Text>Price</Card.Text>
-        <Card.Text>Rating</Card.Text>
-        <Button variant="primary">Add to cart </Button>
+        <Card.Title>{prod.productName}</Card.Title> 
+        <Card.Text>${prod.price}</Card.Text>
+        <Card.Text>Rating:{prod.rating}</Card.Text>
+        {/* conditional rendrering */}
+
+        {show ?
+        <Button variant="primary"
+        onClick={addtocart}
+        >Add to cart </Button>
+
+        :
+        <Button variant="danger"
+        onClick={removecart}
+        >Remove cart </Button> }
       </Card.Body>
     </Card>
 
       </div>
     )
    }
+
+   // // STATE
+// can change contiusely,
+// how to define(2 types(value,set-fun)),
+// how to work backend
+
+// function useState(data){
+  // let value=data
+  // function setfun(newdata){
+    //  value=newdata
+  // }
+// return [value,setfun]
+// }
+
+// const [value,setfun]=useState("viji")
+// console.log(value)
+// setfun("priya")
+// console.log(value=new data)
+
+  // const[show,setShow]=useState("viji")//hooks
+  // const getDetails=()=>
+  // console.log(show)
+  // setShow("priya")
+  // console.log(show)
+
+// Working with array lists
+// Usage of keys(keys used to initimate the which one dom use)
+// Conditional rendering(true or false)
+// Handling Events(onclick())
+// Props vs state
+// two different data use different places(props)(2 components)
+// manipulate function data inside the function mean use state
