@@ -1,49 +1,68 @@
-import React, { createElement } from "react";
+import { createElement } from "react";
 import "./App.css";
-
-export default function App() {
-  const data= [
-    {
-      image:
-        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHMAcwMBIgACEQEDEQH/xAAbAAEBAAIDAQAAAAAAAAAAAAAABwUGAQIDBP/EAC8QAAIBBAEDAQYGAwEAAAAAAAABAgMEBRESBiExExQyQVFhgQcVIlJxkTNiciP/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAgED/8QAHREBAQEBAAEFAAAAAAAAAAAAAAECERIDITFBYf/aAAwDAQACEQMRAD8AuIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB1jOM98Wnp67M5fgjtpHI9PX+UzGBqNp5OrC5spzfpXKclp/wCs9tx5L48d7WzLeNmbfhYwaJlPxKxf5C6+CnG9y9TUKWOl2q05/H1I+YqPfb8dtJ90Y/pH8UKeQqZJ9UexYSnbKPoU6tSSnV97k05a5eF2S33/AINYpZwntbRH8zk8n1HY5HJ3069DHWtpUuKONhNwT1GUoKrr35PW3HfFdlp+SodO2lOwwGNs6P8AjoWtKnH+FFIzqrmySsiADUgAAAAAAAAAA6VZcKcpvxFNkpxtxTp9Lw9fnKrk3cVlx8p1JTmv65Jb/gq1aHqUpw/dFoi7m7WNTDVYync4m4lFT4biqUv1RW1rvpxTX038idTvHX0t+Pb+PXC9PqlY3WRoQpe1uu41m3qVRyal534XKPb5J/f4s5h/zOVS2vZSiqMXFRhPipVNbUuz7pdml9XvwZOnir/IqUKV0rK4t5K7p2tX/wA51oqOuynr9Mmtcvhx+p45mnTq5jE8KsKuXyj3TsqNSnJ0UoNvck2l7se+++mu6GfLt65Mth7i2qUK2NulKM6kG5ya7VFLlHSfz4xXb6/Rm69FXFS56UxcriXKvC3jSqy/dOH6JP7uLJ8qd1hchU1G2jXpajWfqOSa0nxcnHv58/Bm4/hrfUbrpehRjKPtVtKVO7ivEarfNtf6vlyT+TQmeW1136k1jM+42sAFOQAAAAAAAAAAMZ1NlPyXp/IZNQ9SVrbzqxhvXJpbSIr0/l6M8XSubqVX17jdavWdKbU5ye3KUktL++3jwkXi5t6VzRlRrwU6cvejLwzq7O24cPQp8da0ogQ3rWwfVPSNL2HjdXmJbrW3pvk6ts9KcVrzwfF/8+DGfhPg1hepHn8rXt4WFhbVJyqwnuMZyWoptry4uT+xYsl0Jibu49rto1LK7T5KvazdKe/nuOt/c4tujIVa1GpnshcZaFvP1KFC4hTVOE/3uMYxUpd/L3oKlz42We7TcXY5nq2vOvY0/ZLKrN1Kt/cRf6+T21RjtNrv7z7fJPybr0T0Za9JO+lbXNetO9lGVX1HHXJb7pJLu99zZ4xjGKUYpJeEvgchIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//Z",
-      name: "Tom",
-      batch: "B45WD"
-    },
-    {
-      image:
-        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHMAcwMBIgACEQEDEQH/xAAbAAEBAAIDAQAAAAAAAAAAAAAABwUGAQIDBP/EAC8QAAIBBAEDAQYGAwEAAAAAAAABAgMEBRESBiExExQyQVFhgQcVIlJxkTNiciP/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAgED/8QAHREBAQEBAAEFAAAAAAAAAAAAAAECERIDITFBYf/aAAwDAQACEQMRAD8AuIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB1jOM98Wnp67M5fgjtpHI9PX+UzGBqNp5OrC5spzfpXKclp/wCs9tx5L48d7WzLeNmbfhYwaJlPxKxf5C6+CnG9y9TUKWOl2q05/H1I+YqPfb8dtJ90Y/pH8UKeQqZJ9UexYSnbKPoU6tSSnV97k05a5eF2S33/AINYpZwntbRH8zk8n1HY5HJ3069DHWtpUuKONhNwT1GUoKrr35PW3HfFdlp+SodO2lOwwGNs6P8AjoWtKnH+FFIzqrmySsiADUgAAAAAAAAAA6VZcKcpvxFNkpxtxTp9Lw9fnKrk3cVlx8p1JTmv65Jb/gq1aHqUpw/dFoi7m7WNTDVYync4m4lFT4biqUv1RW1rvpxTX038idTvHX0t+Pb+PXC9PqlY3WRoQpe1uu41m3qVRyal534XKPb5J/f4s5h/zOVS2vZSiqMXFRhPipVNbUuz7pdml9XvwZOnir/IqUKV0rK4t5K7p2tX/wA51oqOuynr9Mmtcvhx+p45mnTq5jE8KsKuXyj3TsqNSnJ0UoNvck2l7se+++mu6GfLt65Mth7i2qUK2NulKM6kG5ya7VFLlHSfz4xXb6/Rm69FXFS56UxcriXKvC3jSqy/dOH6JP7uLJ8qd1hchU1G2jXpajWfqOSa0nxcnHv58/Bm4/hrfUbrpehRjKPtVtKVO7ivEarfNtf6vlyT+TQmeW1136k1jM+42sAFOQAAAAAAAAAAMZ1NlPyXp/IZNQ9SVrbzqxhvXJpbSIr0/l6M8XSubqVX17jdavWdKbU5ye3KUktL++3jwkXi5t6VzRlRrwU6cvejLwzq7O24cPQp8da0ogQ3rWwfVPSNL2HjdXmJbrW3pvk6ts9KcVrzwfF/8+DGfhPg1hepHn8rXt4WFhbVJyqwnuMZyWoptry4uT+xYsl0Jibu49rto1LK7T5KvazdKe/nuOt/c4tujIVa1GpnshcZaFvP1KFC4hTVOE/3uMYxUpd/L3oKlz42We7TcXY5nq2vOvY0/ZLKrN1Kt/cRf6+T21RjtNrv7z7fJPybr0T0Za9JO+lbXNetO9lGVX1HHXJb7pJLu99zZ4xjGKUYpJeEvgchIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//Z",
-      name: "Tom",
-      batch: "B45WD"
-    },
-    {
-      image:
-        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHMAcwMBIgACEQEDEQH/xAAbAAEBAAIDAQAAAAAAAAAAAAAABwUGAQIDBP/EAC8QAAIBBAEDAQYGAwEAAAAAAAABAgMEBRESBiExExQyQVFhgQcVIlJxkTNiciP/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAgED/8QAHREBAQEBAAEFAAAAAAAAAAAAAAECERIDITFBYf/aAAwDAQACEQMRAD8AuIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB1jOM98Wnp67M5fgjtpHI9PX+UzGBqNp5OrC5spzfpXKclp/wCs9tx5L48d7WzLeNmbfhYwaJlPxKxf5C6+CnG9y9TUKWOl2q05/H1I+YqPfb8dtJ90Y/pH8UKeQqZJ9UexYSnbKPoU6tSSnV97k05a5eF2S33/AINYpZwntbRH8zk8n1HY5HJ3069DHWtpUuKONhNwT1GUoKrr35PW3HfFdlp+SodO2lOwwGNs6P8AjoWtKnH+FFIzqrmySsiADUgAAAAAAAAAA6VZcKcpvxFNkpxtxTp9Lw9fnKrk3cVlx8p1JTmv65Jb/gq1aHqUpw/dFoi7m7WNTDVYync4m4lFT4biqUv1RW1rvpxTX038idTvHX0t+Pb+PXC9PqlY3WRoQpe1uu41m3qVRyal534XKPb5J/f4s5h/zOVS2vZSiqMXFRhPipVNbUuz7pdml9XvwZOnir/IqUKV0rK4t5K7p2tX/wA51oqOuynr9Mmtcvhx+p45mnTq5jE8KsKuXyj3TsqNSnJ0UoNvck2l7se+++mu6GfLt65Mth7i2qUK2NulKM6kG5ya7VFLlHSfz4xXb6/Rm69FXFS56UxcriXKvC3jSqy/dOH6JP7uLJ8qd1hchU1G2jXpajWfqOSa0nxcnHv58/Bm4/hrfUbrpehRjKPtVtKVO7ivEarfNtf6vlyT+TQmeW1136k1jM+42sAFOQAAAAAAAAAAMZ1NlPyXp/IZNQ9SVrbzqxhvXJpbSIr0/l6M8XSubqVX17jdavWdKbU5ye3KUktL++3jwkXi5t6VzRlRrwU6cvejLwzq7O24cPQp8da0ogQ3rWwfVPSNL2HjdXmJbrW3pvk6ts9KcVrzwfF/8+DGfhPg1hepHn8rXt4WFhbVJyqwnuMZyWoptry4uT+xYsl0Jibu49rto1LK7T5KvazdKe/nuOt/c4tujIVa1GpnshcZaFvP1KFC4hTVOE/3uMYxUpd/L3oKlz42We7TcXY5nq2vOvY0/ZLKrN1Kt/cRf6+T21RjtNrv7z7fJPybr0T0Za9JO+lbXNetO9lGVX1HHXJb7pJLu99zZ4xjGKUYpJeEvgchIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//Z",
-      name: "Tom",
-      batch: "B45WD"
-    }
-  ];
-  return (
-    <div className="App">
-      {data.map((profile, index) => (
-        <Profile
-          key={index}
-          image={profile.image}
-          name={profile.name}
-          batch={profile.batch}
-        />
-      ))}
-    </div>
-  );
-}
-
-function Profile({ image, name, batch }) {
-  return (
-    <div className="Profile">
-      <img src={image} alt={name} />
-      <h2>{name}</h2>
-      <p>{batch}</p>
-    </div>
-  );
-}
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
  
+function App() {
+  const data = [
+    {
+      productImage:
+        "https://www.apple.com/in/iphone/home/images/meta/iphone__ky2k6x5u6vue_og.png",
+      productName: "Iphone 14promax",
+      price: 100000,
+      rating: 91,
+    },
+    {
+      productImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3jAmZcKm3NQoK8tlikVJsPAfm3cAhr_IKelWibDsJj3vgZ5BCZuvssOPGjIbljbkWR68&usqp=CAU",
+      productName: "Samsung Galaxy",
+      price: 95000,
+      rating: 90,
+    },
+    {
+      productImage:
+        "https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_1000x1000/GPX7PR128H_A_google_pixel_7_pro_5g_unlocked_smartphone_128gb_hazel.jpg/resize?size=600&auth=MjA5OTcwODkwMg__",
+      productName: "Google Pixel 7pro",
+      price: 70000,
+      rating: 80,
+    },
+    {
+      productImage:
+        "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/617MPEZB5mL._SL1500_.jpg",
+      productName: "Oneplus 11",
+      price: 64000,
+      rating: 50,
+    },
+  ]
+
+   return (
+    <div className="App">
+      <div className="card-Container">
+      {data.map((product,idx)=>(
+        <Product/>
+      ))}
+    </div>
+    </div>
+  );
+}
+export default App;
+
+
+   function Product(){
+    return(
+      <div>
+        <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src="Product image  " />
+      <Card.Body>
+        <Card.Title>Product Name</Card.Title>
+        <Card.Text>Price</Card.Text>
+        <Card.Text>Rating</Card.Text>
+        <Button variant="primary">Add to cart </Button>
+      </Card.Body>
+    </Card>
+
+      </div>
+    )
+   }
