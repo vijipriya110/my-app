@@ -1,35 +1,40 @@
- .App {
+*{
+  padding: 0px;
+  margin: 0px;
+}
+ 
+.main-component{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.heading{
+  padding : 50px;
+  font-family: sans-serif;
+}
+ 
+.main-segment{
+  width: 100%;
   text-align: center;
-  
+  height: 75%;
 }
-
-.head-App {
+ 
+.card{
   display: flex;
-  justify-content: center;
-  font-size: xx-large;
-  background-color:antiquewhite;
+  flex-direction: column;
+  gap :2rem;
+ align-content: space-around;
+  border : 1px solid red;
+  width : 200px;
   height: 200px;
-  padding: 4%;
+  margin : 12px;
 }
-
-
-
-.cart-value {
-  display: flex;
-  justify-content: end;
-  margin: 15px;
-  font-size: larger;
+ 
+.card-container{
+  display: grid;
+  gap :1rem;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 }
-
-
-
-
-
-.card-container 
-{
-  display: flex;
-  flex-direction:inherit;
-  gap: 3rem;
-  margin: "27px";
-  justify-content: center;
- }
+ 
